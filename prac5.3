@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+class Vehicle {
+public:
+    Vehicle(int wheels) : numWheels(wheels) {}
+
+    void displayInfo() {
+        cout<<"sumra tanya"<<endl;
+        cout<<"220130318009"<<endl;
+        std::cout << "This is a vehicle with " << numWheels << " wheels." << std::endl;
+    }
+
+private:
+    int numWheels;
+};
+
+class Engine {
+public:
+    Engine(const std::string& type) : engineType(type) {}
+
+    void startEngine() {
+        std::cout << "Starting the " << engineType << " engine." << std::endl;
+    }
+
+private:
+    std::string engineType;
+};
+
+class Car : public Vehicle, public Engine {
+public:
+    Car(int wheels, const std::string& engineType, const std::string& model)
+        : Vehicle(wheels), Engine(engineType), modelName(model) {}
+
+    void displayCarInfo() {
+        displayInfo();
+        startEngine();
+        std::cout << "Model: " << modelName << std::endl;
+    }
+
+private:
+    std::string modelName;
+};
+
+int main() {
+
+    Car myCar(4, "V8", "SUV");
+
+    myCar.displayCarInfo();
+
+    return 0;
+}
