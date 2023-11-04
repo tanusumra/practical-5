@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+class MyClass {
+public:
+    MyClass(int value) : data(value) {}
+ 
+    void printData() {
+        
+        std::cout << "Data member value: " << this->data << std::endl;
+    }
+
+    void setData(int value) {
+        this->data = value;
+    }
+
+    void printAddress() {
+        std::cout << "Address of the object: " << this << std::endl;
+    }
+
+private:
+    int data;
+};
+
+int main() {
+    MyClass obj1(42);
+    MyClass obj2(99);
+    
+    obj1.printData();
+    obj1.setData(10);
+    obj1.printData();
+
+    obj2.printData();
+
+    obj1.printAddress();
+    obj2.printAddress();
+
+    return 0;
+}
