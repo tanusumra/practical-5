@@ -1,0 +1,54 @@
+#include <iostream>
+
+class Shape {
+public:
+    Shape() {}
+
+    // Virtual function
+    virtual void display() {
+        std::cout << "This is a shape." << std::endl;
+    }
+};
+
+class Circle : public Shape {
+public:
+    Circle(double radius) : radius(radius) {}
+
+    // Override the virtual function
+    void display() override {
+        std::cout << "This is a circle with radius " << radius << "." << std::endl;
+    }
+
+private:
+    double radius;
+};
+
+class Square : public Shape {
+public:
+    Square(double side) : side(side) {}
+
+    // Override the virtual function
+    void display() override {
+        std::cout << "This is a square with side length " << side << "." << std::endl;
+    }
+
+private:
+    double side;
+};
+
+int main() {
+    Shape* shapes[3];
+
+    Circle circle(5.0);
+    Square square(4.0);
+
+    shapes[0] = &circle;
+    shapes[1] = &square;
+    shapes[2] = new Shape();
+
+    for (int i = 0; i < 3; i++) {
+        shapes[i]->display();
+    }
+
+    return 0;
+}
